@@ -1,5 +1,9 @@
+"use client"
+
+import { usePathname } from "next/navigation";
 import "./globals.css";
-import ChildrenLayout from "@/layouts/ChildrenLayout";
+import MainLayout from "@/layouts/MainLayout";
+// import ChildrenLayout from "@/layouts/ChildrenLayout";
 // import axios from "axios";
 
 // export const metadata = {
@@ -482,11 +486,17 @@ import ChildrenLayout from "@/layouts/ChildrenLayout";
 // }
 
 export default function RootLayout({ children }) {
+  const pathname = usePathname();
+
+  const renderHeader = (propsChildren) => {
+    if (pathname.startsWith("/auth")) return propsChildren;
+    if (pathname.startsWith("/admin")) return propsChildren;
+    return <MainLayout>{propsChildren}</MainLayout>;
+  };
+
   return (
     <html lang="id">
-      <body>
-        <ChildrenLayout>{children}</ChildrenLayout>
-      </body>
+      <body>{renderHeader(children)}</body>
     </html>
   );
 }
