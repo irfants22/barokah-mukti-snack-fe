@@ -491,9 +491,9 @@ export default function RootLayout({ children }) {
   const pathname = usePathname();
 
   const renderHeader = (children) => {
-    if (pathname.startsWith("/auth")) return <>{children}</>;
-    if (pathname.startsWith("/admin")) return <>{children}</>;
-    return <MainLayout children={children} />;
+    if (pathname.startsWith("/auth")) return children;
+    if (pathname.startsWith("/admin")) return children;
+    return <MainLayout>{children}</MainLayout>;
   };
 
   return (

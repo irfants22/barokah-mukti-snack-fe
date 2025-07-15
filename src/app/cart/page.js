@@ -143,6 +143,7 @@ export default function CartPage() {
                     <div className="flex items-center space-x-4">
                       <div className="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
                         <img
+                          alt="Gambar Produk"
                           src={item.product?.image}
                           className="w-full hfull bg-cover"
                         ></img>

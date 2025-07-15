@@ -231,6 +231,7 @@ export default function OrderPage() {
                   <td className="py-4 px-2">
                     <div className="w-16 h-16 bg-gray-200 rounded-md flex items-center justify-center">
                       <img
+                        alt="Gambar Produk"
                         src={item.product?.image}
                         className="w-full h-full bg-cover"
                       ></img>
